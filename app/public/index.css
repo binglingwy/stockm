@@ -1,0 +1,14 @@
+ul{
+    list-style: none;
+}
+
+table{
+    border-collapse: collapse;
+}
+td{
+    border: 1px solid #ccc;
+}
+
+a {
+    color: blue
+}
