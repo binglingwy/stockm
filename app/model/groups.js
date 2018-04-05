@@ -2,7 +2,7 @@
 // 挂在到ctx下通过 ctx.model.User.fn()使用
 module.exports = app => {
     const { STRING, DATE, BIGINT } = app.Sequelize;
-    const Group = app.model.define("tb_groups", {
+    const Group = app.model.define("tb_group", {
         id: {
             type: BIGINT(11),
             autoIncrement:true,
@@ -30,5 +30,10 @@ module.exports = app => {
             }
         }
     });
+    
+    Group.sync().then(() => {
+        console.log("model Group sync done");
+    });
+    
     return Group;
 };

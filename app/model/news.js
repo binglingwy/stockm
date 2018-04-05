@@ -1,6 +1,6 @@
 module.exports = app => {
     const { STRING, INTEGER, DATE, BIGINT } = app.Sequelize;
-    const News = app.model.define("tb_news", {
+    const News = app.model.define("tb_new", {
         id: {
             type: BIGINT(11),
             autoIncrement:true,
@@ -8,7 +8,7 @@ module.exports = app => {
             unique : true
         },
         title: STRING(50),
-        content: INTEGER(150),
+        content: STRING(150),
         userId: BIGINT(11),
         createdAt: {
             type:DATE,
@@ -29,5 +29,10 @@ module.exports = app => {
             }
         }
     });
+    
+    News.sync().then(() => {
+        console.log("model News sync done");
+    });
+    
     return News;
 };
